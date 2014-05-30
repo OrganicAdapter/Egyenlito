@@ -51,7 +51,8 @@
         </AppBar>
     </Page.BottomAppBar>
     
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid"
+          Background="#00a8c9">
         <ProgressRing Grid.Row="1" Grid.ColumnSpan="2"
                       Foreground="LightBlue"
                       IsActive="{Binding Loading}"/>

@@ -32,6 +32,7 @@ namespace EgyenlitoLIB.ViewModels
         private async void ExecuteGetArticles()
         {
             Loading = true;
+            await Main.LocalFileManager.GetArticles();
             Articles = await Main.DataManager.GetArticles(Main.Newspaper.NewspaperId);
             Loading = false;
         }

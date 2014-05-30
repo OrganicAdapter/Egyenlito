@@ -38,7 +38,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
@@ -55,7 +55,8 @@
                       IsActive="{Binding Loading}" />
         
         <Image Grid.Row="1" Grid.Column="0"
-               Source="{Binding Main.Newspaper.CoverUri}" />
+               Source="{Binding Main.Newspaper.CoverUri}"
+               Margin="20"/>
 
         <Controls:ArticlesList Grid.Row="1" Grid.Column="1" />
     </Grid>

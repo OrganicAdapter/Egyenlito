@@ -38,7 +38,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="3*" />

@@ -25,6 +25,14 @@
         </Core:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
+    <Page.TopAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Back" Label="Vissza" Command="{Binding GoBack}"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.TopAppBar>
+    
     <Grid x:Name="mainGrid">
         <FlipView x:Name="list"
                   ItemsSource="{Binding Pages}">

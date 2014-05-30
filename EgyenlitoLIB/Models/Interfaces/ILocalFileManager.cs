@@ -12,7 +12,7 @@ namespace EgyenlitoLIB.Models.Interfaces
         ILocalDataManager DataManager { get; set; }
 
         Task<List<Article>> GetArticles();
-        bool ArticleExists(Article article);
+        bool ArticleExists(int articleId);
         void AddArticle(Article article);
         void DeleteArticle(Article article);
     }

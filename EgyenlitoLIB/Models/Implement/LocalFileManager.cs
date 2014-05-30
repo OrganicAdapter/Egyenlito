@@ -17,8 +17,14 @@ namespace EgyenlitoLIB.Models.Implement
         public LocalFileManager(ILocalDataManager dataManager)
         {
             DataManager = dataManager;
+            Init();
         }
 
+
+        private async void Init()
+        {
+            Articles = await DataManager.Load();
+        }
 
         public async Task<List<Article>> GetArticles()
         {
@@ -26,9 +32,13 @@ namespace EgyenlitoLIB.Models.Implement
             return Articles;
         }
 
-        public bool ArticleExists(Article article)
+        public bool ArticleExists(int articleId)
         {
-            return Articles.Contains(article);
+            var article = (from a in Articles
+                           where a.ArticleId == articleId
+                           select a).FirstOrDefault();
+
+            return (article == null) ? false : true;
         }
 
         public async void AddArticle(Article article)

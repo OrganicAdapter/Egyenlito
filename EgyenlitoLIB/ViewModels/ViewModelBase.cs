@@ -24,6 +24,8 @@ namespace EgyenlitoLIB.ViewModels
         public RelayCommand<string> Navigate { get; set; }
         public RelayCommand SendEmail { get; set; }
         public RelayCommand<string> OpenWebPage { get; set; }
+        public RelayCommand AllArticles { get; set; }
+        public RelayCommand LocalArticles { get; set; }
 
 
         public ViewModelBase()
@@ -32,6 +34,8 @@ namespace EgyenlitoLIB.ViewModels
             Navigate = new RelayCommand<string>((path) => ExecuteNavigate(path));
             SendEmail = new RelayCommand(ExecuteSendEmail);
             OpenWebPage = new RelayCommand<string>((uri) => ExecuteOpenWebPage(uri));
+            AllArticles = new RelayCommand(ExecuteAllArticles);
+            LocalArticles = new RelayCommand(ExecuteLocalArticles);
 
             Main = MainViewModel.Instance;
         }
@@ -63,6 +67,16 @@ namespace EgyenlitoLIB.ViewModels
         private void ExecuteOpenWebPage(string uri)
         {
             Main.TaskManager.OpenWebpage(uri);
+        }
+
+        private void ExecuteAllArticles()
+        {
+            Main.NavigationService.Navigate("AllArticlesView");
+        }
+
+        private void ExecuteLocalArticles()
+        {
+            Main.NavigationService.Navigate("LocalArticlesView");
         }
     }
 }

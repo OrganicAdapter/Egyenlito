@@ -33,11 +33,5 @@ namespace EgyenlitoLIB.ViewModels
 
         public Article Article { get; set; }
         public Newspaper Newspaper { get; set; }
-
-
-        public async void Init()
-        {
-            await LocalFileManager.GetArticles();
-        }
     }
 }

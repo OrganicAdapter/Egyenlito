@@ -98,8 +98,6 @@ namespace EgyenlitoWin
             Main.PdfRenderer = new PdfRenderer();
             Main.TaskManager = new TaskManager();
             Main.FacebookManager = new FacebookManager();
-
-            Main.Init();
         }
 
         /// <summary>

@@ -109,11 +109,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllArticlesView.xaml.cs">
+      <DependentUpon>AllArticlesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ArticlesView.xaml.cs">
       <DependentUpon>ArticlesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ArticlesList.xaml.cs">
+      <DependentUpon>ArticlesList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\IntegerToPaddingConverter.cs" />
     <Compile Include="Converters\StringToBitmapConverter.cs" />
@@ -171,7 +177,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AllArticlesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ArticlesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controllers\ArticlesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

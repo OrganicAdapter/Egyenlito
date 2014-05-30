@@ -19,6 +19,13 @@
         </Core:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Download" Label="Letöltött cikkek" Command="{Binding LocalArticles}" />
+            <AppBarButton Icon="Document" Label="Összes cikk" Command="{Binding AllArticles}" />
+        </CommandBar>
+    </Page.TopAppBar>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

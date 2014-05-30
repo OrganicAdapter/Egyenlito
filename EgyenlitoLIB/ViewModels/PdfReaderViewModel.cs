@@ -32,7 +32,7 @@ namespace EgyenlitoLIB.ViewModels
         private async void ExecuteGetPdf()
         {
             Loading = true;
-            if (Main.LocalFileManager.ArticleExists(Main.Article))
+            if (Main.LocalFileManager.ArticleExists(Main.Article.ArticleId))
             {
                 Pages = await Main.PdfRenderer.RenderLocalPDF(Main.Article.ArticleId);
             }

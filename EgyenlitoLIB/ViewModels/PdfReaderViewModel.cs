@@ -17,15 +17,25 @@ namespace EgyenlitoLIB.ViewModels
             set { _pages = value; OnPropertyChanged("Pages"); }
         }
 
+        private int _zoom;
+        public int Zoom
+        {
+            get { return _zoom; }
+            set { _zoom = value; OnPropertyChanged("Zoom"); }
+        }
+
 
         public RelayCommand GetPdf { get; set; }
         public RelayCommand Post { get; set; }
-
+        public RelayCommand Remove { get; set; }
 
         public PdfReaderViewModel()
         {
+            Zoom = 250;
+
             GetPdf = new RelayCommand(ExecuteGetPdf);
             Post = new RelayCommand(ExecutePost);
+            Remove = new RelayCommand(ExecuteRemove);
         }
 
 
@@ -50,6 +60,12 @@ namespace EgyenlitoLIB.ViewModels
         private void ExecutePost()
         {
             Main.FacebookManager.Authenticate(Main.Article, Main.Newspaper);
+        }
+
+        private void ExecuteRemove()
+        {
+            Main.LocalFileManager.DeleteArticle(Main.Article);
+            Main.NavigationService.GoBack();
         }
     }
 }

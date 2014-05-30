@@ -24,10 +24,17 @@ namespace EgyenlitoLIB.ViewModels
 
         public LocalArticlesViewModel()
         {
+            Init();
+
             GetAllArticles = new RelayCommand(ExecuteGetAllArticles);
             OpenArticle = new RelayCommand<Article>((article) => ExecuteOpenArticle(article));
         }
 
+
+        private async void Init()
+        {
+            Articles = await Main.LocalFileManager.GetArticles();
+        }
 
         private async void ExecuteGetAllArticles()
         {

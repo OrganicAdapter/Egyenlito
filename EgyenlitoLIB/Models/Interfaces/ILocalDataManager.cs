@@ -12,5 +12,6 @@ namespace EgyenlitoLIB.Models.Interfaces
     {
         Task Save(List<Article> articles);
         Task<List<Article>> Load();
+        void Remove(int articleId);
     }
 }

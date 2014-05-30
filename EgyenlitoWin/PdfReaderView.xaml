@@ -29,16 +29,38 @@
         <CommandBar>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="Back" Label="Vissza" Command="{Binding GoBack}"/>
+                <AppBarButton Icon="Delete" Label="Törlés" Command="{Binding Remove}" />
             </CommandBar.SecondaryCommands>
+            <AppBarButton Icon="PostUpdate" Label="Megosztás" Command="{Binding Post}" />
         </CommandBar>
     </Page.TopAppBar>
+
+    <Page.BottomAppBar>
+        <AppBar>
+            <Grid Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Slider Grid.Column="1"
+                        Minimum="0" Maximum="500" 
+                        Value="{Binding Zoom, Mode=TwoWay}"/>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
     
     <Grid x:Name="mainGrid">
+        <ProgressRing Grid.Row="1" Grid.ColumnSpan="2"
+                      Foreground="LightBlue"
+                      IsActive="{Binding Loading}"/>
+        
         <FlipView x:Name="list"
                   ItemsSource="{Binding Pages}">
             <FlipView.ItemTemplate>
                 <DataTemplate>
-                    <ScrollViewer Padding="{Binding ElementName=mainGrid, Path=DataContext.ZoomLevel, Converter={StaticResource IntegerToPaddingConverter}, Mode=OneWay}"
+                    <ScrollViewer Padding="{Binding ElementName=mainGrid, Path=DataContext.Zoom, Converter={StaticResource IntegerToPaddingConverter}, Mode=OneWay}"
                                   ZoomMode="Disabled">
                         <Image Stretch="Uniform" 
                                Source="{Binding ElementName=list, Path=SelectedValue, Converter={StaticResource StringToBitmapConverter}}" />

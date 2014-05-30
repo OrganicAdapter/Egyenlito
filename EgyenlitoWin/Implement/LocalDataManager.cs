@@ -46,5 +46,11 @@ namespace EgyenlitoWin.Implement
                 return new List<Article>();
             }
         }
+
+        public async void Remove(int articleId)
+        {
+            StorageFolder tempFolder = await ApplicationData.Current.TemporaryFolder.GetFolderAsync(articleId.ToString());
+            await tempFolder.DeleteAsync(StorageDeleteOption.PermanentDelete);
+        }
     }
 }

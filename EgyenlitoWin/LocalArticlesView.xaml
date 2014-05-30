@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="EgyenlitoWin.ArticlesView"
+    x:Class="EgyenlitoWin.LocalArticlesView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:EgyenlitoWin"
@@ -11,19 +11,19 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <ViewModels:ArticlesViewModel />
+        <ViewModels:LocalArticlesViewModel />
     </Page.DataContext>
-    
+
     <Interactivity:Interaction.Behaviors>
         <Core:EventTriggerBehavior EventName="Loaded">
-            <Core:InvokeCommandAction Command="{Binding GetArticles}" />
+            <Core:InvokeCommandAction Command="{Binding GetAllArticles}" />
         </Core:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Back" Label="Vissza" Command="{Binding Navigate}" CommandParameter="NewspapersView"/>
+                <AppBarButton Icon="Back" Label="Vissza" Command="{Binding Navigate}" CommandParameter="NewspapersView" />
             </CommandBar.SecondaryCommands>
             <AppBarButton Icon="Download" Label="Letöltött cikkek" Command="{Binding LocalArticles}" />
             <AppBarButton Icon="Document" Label="Összes cikk" Command="{Binding AllArticles}" />
@@ -43,20 +43,13 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <Controls:Header Grid.Row="0" Grid.ColumnSpan="2" />
+        <Controls:Header Grid.Row="0" />
 
         <ProgressRing Grid.Row="1" Grid.ColumnSpan="2"
                       Foreground="LightBlue"
-                      IsActive="{Binding Loading}" />
+                      IsActive="{Binding Loading}"/>
         
-        <Image Grid.Row="1" Grid.Column="0"
-               Source="{Binding Main.Newspaper.CoverUri}" />
-
-        <Controls:ArticlesList Grid.Row="1" Grid.Column="1" />
+        <Controls:ArticlesList Grid.Row="1" />
     </Grid>
 </Page>

@@ -7,12 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:ViewModels="using:EgyenlitoLIB.ViewModels"
+    xmlns:Controls="using:EgyenlitoWin.Controllers"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <ViewModels:NewspapersViewModel />
     </Page.DataContext>
-
+    
     <Interactivity:Interaction.Behaviors>
         <Core:EventTriggerBehavior EventName="Loaded">
             <Core:InvokeCommandAction Command="{Binding GetNewspapers}" />
@@ -26,18 +27,26 @@
         </CommandBar>
     </Page.TopAppBar>
     
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Mail" Label="Levél" Command="{Binding Email}" />
+            <AppBarButton Icon="World" Label="Weblap" Command="{Binding OpenWebPage}" CommandParameter="http://ujegyenlito.hu" />
+            <AppBarButton Icon="Like" Label="Facebook" Command="{Binding OpenWebPage}" CommandParameter="https://www.facebook.com/uj.egyenlito.folyoirat" />
+        </CommandBar>
+    </Page.BottomAppBar>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
+        
+        <Controls:Header Grid.Row="0" />
 
-        <Rectangle Grid.Row="0" 
-                   Fill="#00a8c9" />
-        <Image Grid.Row="0"
-               Source="/Images/logo.png"
-               MaxHeight="200" />
-
+        <ProgressRing Grid.Row="1"
+                      Foreground="LightBlue"
+                      IsActive="{Binding Loading}" />
+        
         <GridView x:Name="list" 
                   Grid.Row="1"
                   ItemsSource="{Binding Newspapers}">

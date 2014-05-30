@@ -121,6 +121,9 @@
     <Compile Include="Controllers\ArticlesList.xaml.cs">
       <DependentUpon>ArticlesList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Header.xaml.cs">
+      <DependentUpon>Header.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\IntegerToPaddingConverter.cs" />
     <Compile Include="Converters\StringToBitmapConverter.cs" />
     <Compile Include="Implement\DataManager.cs" />
@@ -130,6 +133,9 @@
     <Compile Include="Implement\NavigationService.cs" />
     <Compile Include="Implement\PdfRenderer.cs" />
     <Compile Include="Implement\TaskManager.cs" />
+    <Compile Include="LocalArticlesView.xaml.cs">
+      <DependentUpon>LocalArticlesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewspapersView.xaml.cs">
       <DependentUpon>NewspapersView.xaml</DependentUpon>
     </Compile>
@@ -186,6 +192,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controllers\ArticlesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controllers\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LocalArticlesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

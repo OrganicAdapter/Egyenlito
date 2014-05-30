@@ -17,14 +17,8 @@ namespace EgyenlitoLIB.Models.Implement
         public LocalFileManager(ILocalDataManager dataManager)
         {
             DataManager = dataManager;
-            Init();
         }
 
-
-        private async void Init()
-        {
-            Articles = await DataManager.Load();
-        }
 
         public async Task<List<Article>> GetArticles()
         {
@@ -50,8 +44,12 @@ namespace EgyenlitoLIB.Models.Implement
 
         public async void DeleteArticle(Article article)
         {
-            Articles.Remove(article);
+            var art = (from a in Articles
+                       where a.ArticleId == article.ArticleId
+                       select a).FirstOrDefault();
 
+            Articles.Remove(art);
+            DataManager.Remove(article.ArticleId);
             await DataManager.Save(Articles);
         }
     }

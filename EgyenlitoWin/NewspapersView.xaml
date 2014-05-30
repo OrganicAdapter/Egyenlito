@@ -5,9 +5,67 @@
     xmlns:local="using:EgyenlitoWin"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:ViewModels="using:EgyenlitoLIB.ViewModels"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <ViewModels:NewspapersViewModel />
+    </Page.DataContext>
 
+    <Interactivity:Interaction.Behaviors>
+        <Core:EventTriggerBehavior EventName="Loaded">
+            <Core:InvokeCommandAction Command="{Binding GetNewspapers}" />
+        </Core:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" 
+                   Fill="#00a8c9" />
+        <Image Grid.Row="0"
+               Source="/Images/logo.png"
+               MaxHeight="200" />
+
+        <GridView x:Name="list" 
+                  Grid.Row="1"
+                  ItemsSource="{Binding Newspapers}">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="SelectionChanged">
+                    <Core:InvokeCommandAction Command="{Binding OpenNewspaper}" CommandParameter="{Binding SelectedValue, ElementName=list}" />
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Row="0" Grid.RowSpan="2"
+                               Source="{Binding CoverUri}" />
+                        <Rectangle Grid.Row="1"/>
+                        <StackPanel Grid.Row="1">
+                            <Viewbox>
+                                <TextBlock Text="{Binding Title}"/>
+                            </Viewbox>
+                            <Viewbox>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Pages}" />
+                                    <TextBlock Text=" oldal" />
+                                </StackPanel>
+                            </Viewbox>
+                            <TextBlock Text="{Binding ReleaseDate}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </Page>

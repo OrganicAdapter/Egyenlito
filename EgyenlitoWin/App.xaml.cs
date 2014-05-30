@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EgyenlitoLIB.Models.Implement;
+using EgyenlitoLIB.ViewModels;
+using EgyenlitoWin.Implement;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,6 +44,7 @@ namespace EgyenlitoWin
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            SetUpImplements();
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -80,6 +84,22 @@ namespace EgyenlitoWin
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            MainViewModel.Instance.NavigationService = new NavigationService(rootFrame);
+        }
+
+        private void SetUpImplements()
+        {
+            var Main = MainViewModel.Instance;
+
+            Main.DataManager = new DataManager();
+            Main.DownloadManager = new DownloadManager();
+            Main.LocalFileManager = new LocalFileManager(new LocalDataManager());
+            Main.PdfRenderer = new PdfRenderer();
+            Main.TaskManager = new TaskManager();
+            Main.FacebookManager = new FacebookManager();
+
+            Main.Init();
         }
 
         /// <summary>

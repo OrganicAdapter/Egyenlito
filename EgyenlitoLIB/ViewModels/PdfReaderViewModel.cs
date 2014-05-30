@@ -47,9 +47,9 @@ namespace EgyenlitoLIB.ViewModels
             Loading = false;
         }
 
-        private async void ExecutePost()
+        private void ExecutePost()
         {
-            await Main.FacebookManager.Post(Main.Article);
+            Main.FacebookManager.Authenticate(Main.Article, Main.Newspaper);
         }
     }
 }

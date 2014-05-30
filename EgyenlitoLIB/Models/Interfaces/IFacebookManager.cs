@@ -9,7 +9,7 @@ namespace EgyenlitoLIB.Models.Interfaces
 {
     public interface IFacebookManager
     {
-        void Authenticate();
-        Task Post(Article article);
+        void Authenticate(Article article, Newspaper newspaper);
+        Task Post();
     }
 }

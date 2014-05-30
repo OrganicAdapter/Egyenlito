@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -19,8 +20,19 @@ namespace EgyenlitoLIB.ViewModels
         }
 
 
+        public RelayCommand GoBack { get; set; }
+        public RelayCommand<string> Navigate { get; set; }
+        public RelayCommand SendEmail { get; set; }
+        public RelayCommand<string> OpenWebPage { get; set; }
+
+
         public ViewModelBase()
         {
+            GoBack = new RelayCommand(ExecuteGoBack);
+            Navigate = new RelayCommand<string>((path) => ExecuteNavigate(path));
+            SendEmail = new RelayCommand(ExecuteSendEmail);
+            OpenWebPage = new RelayCommand<string>((uri) => ExecuteOpenWebPage(uri));
+
             Main = MainViewModel.Instance;
         }
 

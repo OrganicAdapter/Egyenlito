@@ -1,4 +1,5 @@
 ﻿using EgyenlitoLIB.Models.Data;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,14 @@ namespace EgyenlitoLIB.ViewModels
         }
 
 
+        public RelayCommand GetAllArticles { get; set; }
+        public RelayCommand<Article> OpenArticle { get; set; }
+
+
         public LocalArticlesViewModel()
         {
-
+            GetAllArticles = new RelayCommand(ExecuteGetAllArticles);
+            OpenArticle = new RelayCommand<Article>((article) => ExecuteOpenArticle(article));
         }
 
 

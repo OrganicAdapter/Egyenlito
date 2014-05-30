@@ -15,7 +15,7 @@ namespace EgyenlitoWin.Implement
         public PdfDocument PDFDocument { get; set; }
 
 
-        async Task<List<string>> RenderPDF(int articleId)
+        public async Task<List<string>> RenderPDF(int articleId)
         {
             var list = new List<string>();
 
@@ -68,7 +68,7 @@ namespace EgyenlitoWin.Implement
             }
         }
 
-        async Task<List<string>> RenderLocalPDF(int articleID)
+        public async Task<List<string>> RenderLocalPDF(int articleID)
         {
             StorageFolder tempFolder = await ApplicationData.Current.TemporaryFolder.GetFolderAsync(articleID.ToString());
 

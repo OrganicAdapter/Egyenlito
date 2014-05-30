@@ -1,5 +1,7 @@
 ﻿using EgyenlitoLIB.Models.Data;
 using EgyenlitoLIB.Models.Interfaces;
+using EgyenlitoWin.DataProviderService;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +12,31 @@ namespace EgyenlitoWin.Implement
 {
     public class DataManager : IDataManager
     {
-        public Task<List<Newspaper>> GetNewspapers()
+        public DataProviderServiceClient Service { get; set; }
+
+
+        public DataManager()
         {
-            throw new NotImplementedException();
+            Service = new DataProviderServiceClient();
         }
 
-        public Task<List<Article>> GetAllArticles()
+
+        public async Task<List<Newspaper>> GetNewspapers()
         {
-            throw new NotImplementedException();
+            var json = await Service.GetNewspapersAsync();
+            return await JsonConvert.DeserializeObjectAsync<List<Newspaper>>(json);
         }
 
-        public Task<List<Article>> GetArticles(int newspaperID)
+        public async Task<List<Article>> GetAllArticles()
         {
-            throw new NotImplementedException();
+            var json = await Service.GetAllArticlesAsync();
+            return await JsonConvert.DeserializeObjectAsync<List<Article>>(json);
+        }
+
+        public async Task<List<Article>> GetArticles(int newspaperID)
+        {
+            var json = await Service.GetArticlesAsync(newspaperID);
+            return await JsonConvert.DeserializeObjectAsync<List<Article>>(json);
         }
     }
 }

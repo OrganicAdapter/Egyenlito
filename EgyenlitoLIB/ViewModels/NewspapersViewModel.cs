@@ -1,4 +1,5 @@
 ﻿using EgyenlitoLIB.Models.Data;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,14 @@ namespace EgyenlitoLIB.ViewModels
         }
 
 
+        public RelayCommand GetNewspapers { get; set; }
+        public RelayCommand<Newspaper> OpenNewspaper { get; set; }
+
+
         public NewspapersViewModel()
         {
-            
+            GetNewspapers = new RelayCommand(ExecuteGetNewspapers);
+            OpenNewspaper = new RelayCommand<Newspaper>((newspaper) => ExecuteOpenNewspaper(newspaper));
         }
 
 

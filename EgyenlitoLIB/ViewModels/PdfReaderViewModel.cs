@@ -1,4 +1,5 @@
 ﻿using EgyenlitoLIB.Models.Data;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,14 @@ namespace EgyenlitoLIB.ViewModels
         }
 
 
+        public RelayCommand GetPdf { get; set; }
+        public RelayCommand Post { get; set; }
+
+
         public PdfReaderViewModel()
         {
-
+            GetPdf = new RelayCommand(ExecuteGetPdf);
+            Post = new RelayCommand(ExecutePost);
         }
 
 

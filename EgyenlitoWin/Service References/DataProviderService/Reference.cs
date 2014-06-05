@@ -105,7 +105,7 @@ namespace EgyenlitoWin.DataProviderService {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IDataProviderService)) {
-                return new System.ServiceModel.EndpointAddress("http://egyenlito.asphostpage.net/Egyenlito/WCF/DataProviderService.svc");
+                return new System.ServiceModel.EndpointAddress("http://ujegyenlito.softit.hu/Egyenlito/WCF/DataProviderService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cbeb78ed-7701-44f7-be21-e0c574414c1b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="68e8251a-171b-440a-93ca-a84b46424d7c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -21,12 +21,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://egyenlito.asphostpage.net/Egyenlito/WCF/DataProviderService.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://ujegyenlito.softit.hu/Egyenlito/WCF/DataProviderService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DataProviderService.wsdl" MetadataType="Wsdl" ID="161ce32e-9a47-4b93-a14d-6fbdde9ece4c" SourceId="1" SourceUrl="http://egyenlito.asphostpage.net/Egyenlito/WCF/DataProviderService.svc?wsdl" />
-    <MetadataFile FileName="DataProviderService.xsd" MetadataType="Schema" ID="78b57fc6-be21-4b6b-9979-51ae4db63a23" SourceId="1" SourceUrl="http://egyenlito.asphostpage.net/Egyenlito/WCF/DataProviderService.svc?xsd=xsd0" />
-    <MetadataFile FileName="DataProviderService1.xsd" MetadataType="Schema" ID="9085b4a1-6792-444d-bb38-4413e6f71b0f" SourceId="1" SourceUrl="http://egyenlito.asphostpage.net/Egyenlito/WCF/DataProviderService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataProviderService.xsd" MetadataType="Schema" ID="a8e30700-f636-430b-b6f8-402be0dc23f3" SourceId="1" SourceUrl="http://ujegyenlito.softit.hu/Egyenlito/WCF/DataProviderService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataProviderService1.xsd" MetadataType="Schema" ID="04a8b223-e0ae-435d-8ea5-2f02fb05d06f" SourceId="1" SourceUrl="http://ujegyenlito.softit.hu/Egyenlito/WCF/DataProviderService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataProviderService.wsdl" MetadataType="Wsdl" ID="4c10968a-497f-47fe-849d-9b3be9ecadc8" SourceId="1" SourceUrl="http://ujegyenlito.softit.hu/Egyenlito/WCF/DataProviderService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

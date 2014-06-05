@@ -216,9 +216,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DataProviderService\" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Facebook">
       <HintPath>..\..\EgyenlitoWin\packages\Facebook.6.4.2\lib\win8\Facebook.dll</HintPath>
     </Reference>
@@ -243,6 +240,9 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DataProviderService\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

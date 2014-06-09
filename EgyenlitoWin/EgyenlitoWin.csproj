@@ -155,11 +155,11 @@
     </AppxManifest>
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\DataProviderService\DataProviderService.wsdl" />
-    <None Include="Service References\DataProviderService\DataProviderService.xsd">
+    <None Include="Service References\DataProviderService\WinDataProviderService1.wsdl" />
+    <None Include="Service References\DataProviderService\WinDataProviderService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DataProviderService\DataProviderService1.xsd">
+    <None Include="Service References\DataProviderService\WinDataProviderService21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

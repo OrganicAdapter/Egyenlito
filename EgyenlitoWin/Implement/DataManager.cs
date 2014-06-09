@@ -14,12 +14,12 @@ namespace EgyenlitoWin.Implement
 {
     public class DataManager : IDataManager
     {
-        public DataProviderServiceClient Service { get; set; }
+        public WinDataProviderServiceClient Service { get; set; }
 
 
         public DataManager()
         {
-            Service = new DataProviderServiceClient();
+            Service = new WinDataProviderServiceClient();
         }
 
 

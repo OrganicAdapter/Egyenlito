@@ -30,8 +30,10 @@ namespace EgyenlitoLIB.ViewModels
         public INavigationService NavigationService { get; set; }
         public IPdfRenderer PdfRenderer { get; set; }
         public ITaskManager TaskManager { get; set; }
+        public IEventManager EventManager { get; set; }
 
         public Article Article { get; set; }
         public Newspaper Newspaper { get; set; }
+        public Event Event { get; set; }
     }
 }

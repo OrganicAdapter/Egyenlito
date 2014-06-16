@@ -24,6 +24,7 @@
         <CommandBar>
             <AppBarButton Icon="Download" Label="Letöltött cikkek" Command="{Binding LocalArticles}" />
             <AppBarButton Icon="Document" Label="Összes cikk" Command="{Binding AllArticles}" />
+            <AppBarButton Icon="AllApps" Label="Események" Command="{Binding Events}" />
         </CommandBar>
     </Page.TopAppBar>
     

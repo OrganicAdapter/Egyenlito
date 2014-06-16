@@ -126,8 +126,12 @@
     </Compile>
     <Compile Include="Converters\IntegerToPaddingConverter.cs" />
     <Compile Include="Converters\StringToBitmapConverter.cs" />
+    <Compile Include="EventsView.xaml.cs">
+      <DependentUpon>EventsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Implement\DataManager.cs" />
     <Compile Include="Implement\DownloadManager.cs" />
+    <Compile Include="Implement\EventManager.cs" />
     <Compile Include="Implement\FacebookManager.cs" />
     <Compile Include="Implement\LocalDataManager.cs" />
     <Compile Include="Implement\NavigationService.cs" />
@@ -148,6 +152,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\EventService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -162,6 +171,13 @@
     <None Include="Service References\DataProviderService\WinDataProviderService21.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\EventService\WinEventService.wsdl" />
+    <None Include="Service References\EventService\WinEventService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EventService\WinEventService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
@@ -169,6 +185,12 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Images\logo.png" />
+    <None Include="Service References\EventService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EventService\configuration.svcinfo" />
+    <None Include="Service References\EventService\configuration91.svcinfo" />
     <None Include="Service References\DataProviderService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -196,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controllers\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DataProviderService\" />
+    <WCFMetadataStorage Include="Service References\EventService\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
